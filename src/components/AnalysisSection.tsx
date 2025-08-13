@@ -94,7 +94,7 @@ const AnalysisSection: React.FC = () => {
             probability: result.probability,
             stage: result.stage,
             reasoning: result.reasoning
-          });
+          }, selectedImage);
         } catch (error) {
           console.error('Error saving analysis record:', error);
           // Don't show error to user as analysis still worked
