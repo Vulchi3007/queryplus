@@ -82,6 +82,7 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({ onSubmit, isSubmitting }) =
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
+    console.log('Form validation starting...');
     if (validateForm()) {
       const userData = {
         full_name: formData.full_name.trim(),
@@ -91,6 +92,7 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({ onSubmit, isSubmitting }) =
         email: formData.email.trim() || undefined
       };
       
+      console.log('Form validated, submitting:', userData);
       onSubmit(userData);
     }
   };

@@ -1,12 +1,31 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || ''
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || ''
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 
-// Only create Supabase client if both URL and key are provided
+console.log('Supabase URL:', supabaseUrl ? 'Set' : 'Not set')
+console.log('Supabase Key:', supabaseAnonKey ? 'Set' : 'Not set')
+
+// Create Supabase client
 export const supabase = supabaseUrl && supabaseAnonKey 
-  ? createClient(supabaseUrl, supabaseAnonKey)
+  ? createClient(supabaseUrl, supabaseAnonKey, {
+      auth: {
+        persistSession: false // For anonymous usage
+      }
+    })
   : null
+
+// Test connection
+if (supabase) {
+  supabase.from('users').select('count', { count: 'exact', head: true })
+    .then(({ error, count }) => {
+      if (error) {
+        console.error('Supabase connection error:', error)
+      } else {
+        console.log('Supabase connected successfully. Users count:', count)
+      }
+    })
+}
 
 export interface UserData {
   id?: string
@@ -45,23 +64,31 @@ export interface AnalysisSummary {
 // Insert user data
 export const insertUserData = async (userData: Omit<UserData, 'id' | 'created_at'>) => {
   if (!supabase) {
-    console.warn('Supabase not configured - user data not saved')
-    // Return mock data for development
-    return { id: 'mock-user-id', ...userData, created_at: new Date().toISOString() }
+    console.error('Supabase not configured - user data not saved')
+    throw new Error('Database not configured')
   }
 
-  const { data, error } = await supabase
-    .from('users')
-    .insert([userData])
-    .select()
-    .single()
+  console.log('Inserting user data:', userData)
 
-  if (error) {
-    console.error('Error inserting user data:', error)
+  try {
+    const { data, error } = await supabase
+      .from('users')
+      .insert([userData])
+      .select()
+      .single()
+
+    if (error) {
+      console.error('Error inserting user data:', error)
+      throw error
+    }
+
+    console.log('User data inserted successfully:', data)
+    return data
+  } catch (error) {
+    console.error('Failed to insert user data:', error)
+    // Return mock data for development
     throw error
   }
-
-  return data
 }
 
 // Insert analysis record
@@ -70,55 +97,70 @@ export const insertAnalysisRecord = async (
   imageFile?: File
 ) => {
   if (!supabase) {
-    console.warn('Supabase not configured - analysis record not saved')
+    console.error('Supabase not configured - analysis record not saved')
+    throw new Error('Database not configured')
+  }
+
+  console.log('Inserting analysis record:', analysisData)
+
+  try {
     // Return mock data for development
-    return { id: 'mock-analysis-id', ...analysisData, created_at: new Date().toISOString() }
-  }
+    let imageUrl = null
+    let imageName = null
 
-  let imageUrl = null
-  let imageName = null
-
-  // Upload image to Supabase Storage if provided
-  if (imageFile) {
-    imageName = `${Date.now()}-${imageFile.name}`
-    const filePath = `analysis-images/${analysisData.user_id}/${imageName}`
-    
-    const { data: uploadData, error: uploadError } = await supabase.storage
-      .from('medical-images')
-      .upload(filePath, imageFile, {
-        cacheControl: '3600',
-        upsert: false
-      })
-
-    if (uploadError) {
-      console.error('Error uploading image:', uploadError)
-      // Continue without image - don't fail the analysis
-    } else {
-      // Get public URL for the uploaded image
-      const { data: urlData } = supabase.storage
-        .from('medical-images')
-        .getPublicUrl(filePath)
+    // Upload image to Supabase Storage if provided
+    if (imageFile) {
+      console.log('Uploading image to storage...')
+      imageName = `${Date.now()}-${imageFile.name}`
+      const filePath = `analysis-images/${analysisData.user_id}/${imageName}`
       
-      imageUrl = urlData.publicUrl
-    }
-  }
+      const { data: uploadData, error: uploadError } = await supabase.storage
+        .from('medical-images')
+        .upload(filePath, imageFile, {
+          cacheControl: '3600',
+          upsert: false
+        })
 
-  const { data, error } = await supabase
-    .from('analysis_records')
-    .insert([{
+      if (uploadError) {
+        console.error('Error uploading image:', uploadError)
+        // Continue without image - don't fail the analysis
+      } else {
+        console.log('Image uploaded successfully:', uploadData)
+        // Get public URL for the uploaded image
+        const { data: urlData } = supabase.storage
+          .from('medical-images')
+          .getPublicUrl(filePath)
+        
+        imageUrl = urlData.publicUrl
+        console.log('Image URL:', imageUrl)
+      }
+    }
+
+    const recordData = {
       ...analysisData,
       image_url: imageUrl,
       image_name: imageName
-    }])
-    .select()
-    .single()
+    }
 
-  if (error) {
-    console.error('Error inserting analysis record:', error)
+    console.log('Inserting analysis record with data:', recordData)
+
+    const { data, error } = await supabase
+      .from('analysis_records')
+      .insert([recordData])
+      .select()
+      .single()
+
+    if (error) {
+      console.error('Error inserting analysis record:', error)
+      throw error
+    }
+
+    console.log('Analysis record inserted successfully:', data)
+    return data
+  } catch (error) {
+    console.error('Failed to insert analysis record:', error)
     throw error
   }
-
-  return data
 }
 
 // Get user analysis history

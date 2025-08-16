@@ -25,12 +25,14 @@ const AnalysisSection: React.FC = () => {
     setIsSubmittingForm(true);
     
     try {
+      console.log('Submitting user form data:', formData);
       const savedUser = await insertUserData(formData);
+      console.log('User saved successfully:', savedUser);
       setUserData(savedUser);
       setCurrentStep('upload');
     } catch (error) {
       console.error('Error saving user data:', error);
-      alert('Failed to save user information. Please try again.');
+      alert(`Failed to save user information: ${error.message}. Please check your internet connection and try again.`);
     } finally {
       setIsSubmittingForm(false);
     }
@@ -89,15 +91,18 @@ const AnalysisSection: React.FC = () => {
       // Save analysis record to Supabase
       if (userData) {
         try {
+          console.log('Saving analysis record for user:', userData.id);
           await insertAnalysisRecord({
             user_id: userData.id!,
             probability: result.probability,
             stage: result.stage,
             reasoning: result.reasoning
           }, selectedImage);
+          console.log('Analysis record saved successfully');
         } catch (error) {
           console.error('Error saving analysis record:', error);
-          // Don't show error to user as analysis still worked
+          // Show warning but don't fail the analysis
+          console.warn('Analysis completed but failed to save to database');
         }
       }
     } catch (error) {
