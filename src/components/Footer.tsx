@@ -25,8 +25,8 @@ const Footer: React.FC = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <Stethoscope className="h-8 w-8 text-blue-400" />
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">
+              <Stethoscope className="h-8 w-8 text-purple-400" />
+              <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
                 QurePlus
               </span>
             </div>
@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-gray-300 hover:text-blue-400 transition-colors duration-200 text-sm"
+                    className="text-gray-300 hover:text-purple-400 transition-colors duration-200 text-sm"
                   >
                     {link.label}
                   </a>
@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
                 <li key={index}>
                   <a
                     href={service.href}
-                    className="text-gray-300 hover:text-blue-400 transition-colors duration-200 text-sm"
+                    className="text-gray-300 hover:text-purple-400 transition-colors duration-200 text-sm"
                   >
                     {service.label}
                   </a>

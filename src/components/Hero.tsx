@@ -10,8 +10,8 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
     <section id="home" className="relative pt-16 pb-20 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-teal-50"></div>
-      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
-      <div className="absolute top-0 right-0 w-96 h-96 bg-teal-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animation-delay-2000 animate-pulse"></div>
+      <div className="absolute top-0 left-0 w-96 h-96 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animation-delay-2000 animate-pulse"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -19,7 +19,7 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
           <div className="text-center lg:text-left">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               AI-Powered{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
                 Varicose Vein
               </span>{' '}
               Analysis & Treatment
@@ -32,15 +32,15 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
             {/* Stats */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-8 mb-8">
               <div className="text-center">
-                <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mb-2 mx-auto">
-                  <Target className="h-6 w-6 text-blue-600" />
+                <div className="flex items-center justify-center w-12 h-12 bg-purple-100 rounded-full mb-2 mx-auto">
+                  <Target className="h-6 w-6 text-purple-600" />
                 </div>
                 <div className="text-2xl font-bold text-gray-900">95%</div>
                 <div className="text-sm text-gray-600">Accuracy</div>
               </div>
               <div className="text-center">
-                <div className="flex items-center justify-center w-12 h-12 bg-teal-100 rounded-full mb-2 mx-auto">
-                  <Clock className="h-6 w-6 text-teal-600" />
+                <div className="flex items-center justify-center w-12 h-12 bg-purple-100 rounded-full mb-2 mx-auto">
+                  <Clock className="h-6 w-6 text-purple-600" />
                 </div>
                 <div className="text-2xl font-bold text-gray-900">2s</div>
                 <div className="text-sm text-gray-600">Analysis Time</div>
@@ -56,7 +56,7 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
 
             <button
               onClick={() => scrollToSection('analysis')}
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-teal-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-teal-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-800 text-white font-semibold rounded-full hover:from-purple-700 hover:to-purple-900 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
               Start Free Analysis
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -85,13 +85,13 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
                 </div>
                 
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-blue-50 rounded-lg p-3">
-                    <div className="text-xs text-blue-600 mb-1">Probability</div>
-                    <div className="text-lg font-bold text-blue-900">---%</div>
+                  <div className="bg-purple-50 rounded-lg p-3">
+                    <div className="text-xs text-purple-600 mb-1">Probability</div>
+                    <div className="text-lg font-bold text-purple-900">---%</div>
                   </div>
-                  <div className="bg-teal-50 rounded-lg p-3">
-                    <div className="text-xs text-teal-600 mb-1">Stage</div>
-                    <div className="text-sm font-semibold text-teal-900">Analyzing...</div>
+                  <div className="bg-purple-50 rounded-lg p-3">
+                    <div className="text-xs text-purple-600 mb-1">Stage</div>
+                    <div className="text-sm font-semibold text-purple-900">Analyzing...</div>
                   </div>
                 </div>
               </div>

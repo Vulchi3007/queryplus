@@ -100,8 +100,8 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({ onSubmit, isSubmitting }) =
   return (
     <div className="bg-white rounded-2xl shadow-lg p-8">
       <div className="text-center mb-8">
-        <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-          <User className="h-8 w-8 text-blue-600" />
+        <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4">
+          <User className="h-8 w-8 text-purple-600" />
         </div>
         <h3 className="text-2xl font-bold text-gray-900 mb-2">Personal Information</h3>
         <p className="text-gray-600">Please provide your details before proceeding with the analysis</p>
@@ -121,7 +121,7 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({ onSubmit, isSubmitting }) =
               name="full_name"
               value={formData.full_name}
               onChange={handleInputChange}
-              className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${
+              className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 ${
                 errors.full_name ? 'border-red-300 bg-red-50' : 'border-gray-300'
               }`}
               placeholder="Enter your full name"
@@ -149,7 +149,7 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({ onSubmit, isSubmitting }) =
                 onChange={handleInputChange}
                 min="1"
                 max="120"
-                className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${
+                className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 ${
                   errors.age ? 'border-red-300 bg-red-50' : 'border-gray-300'
                 }`}
                 placeholder="Enter your age"
@@ -173,7 +173,7 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({ onSubmit, isSubmitting }) =
                 name="city"
                 value={formData.city}
                 onChange={handleInputChange}
-                className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${
+                className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 ${
                   errors.city ? 'border-red-300 bg-red-50' : 'border-gray-300'
                 }`}
                 placeholder="Enter your city"
@@ -198,7 +198,7 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({ onSubmit, isSubmitting }) =
               name="mobile"
               value={formData.mobile}
               onChange={handleInputChange}
-              className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${
+              className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 ${
                 errors.mobile ? 'border-red-300 bg-red-50' : 'border-gray-300'
               }`}
               placeholder="Enter your mobile number"
@@ -222,7 +222,7 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({ onSubmit, isSubmitting }) =
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${
+              className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 ${
                 errors.email ? 'border-red-300 bg-red-50' : 'border-gray-300'
               }`}
               placeholder="Enter your email address"
@@ -234,8 +234,8 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({ onSubmit, isSubmitting }) =
         </div>
 
         {/* Privacy Notice */}
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-          <p className="text-sm text-blue-800">
+        <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+          <p className="text-sm text-purple-800">
             <strong>Privacy Notice:</strong> Your personal information will be stored securely and used only for medical analysis purposes. 
             We respect your privacy and will never share your data with third parties.
           </p>
@@ -248,7 +248,7 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({ onSubmit, isSubmitting }) =
           className={`w-full py-4 px-6 rounded-lg font-semibold transition-all duration-300 ${
             isSubmitting
               ? 'bg-gray-400 text-gray-200 cursor-not-allowed'
-              : 'bg-gradient-to-r from-blue-600 to-teal-600 text-white hover:from-blue-700 hover:to-teal-700 transform hover:scale-105 shadow-lg hover:shadow-xl'
+              : 'bg-gradient-to-r from-purple-600 to-purple-800 text-white hover:from-purple-700 hover:to-purple-900 transform hover:scale-105 shadow-lg hover:shadow-xl'
           }`}
         >
           {isSubmitting ? 'Saving Information...' : 'Continue to Image Upload'}

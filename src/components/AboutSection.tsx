@@ -7,7 +7,7 @@ const AboutSection: React.FC = () => {
       icon: Target,
       title: '95% Accuracy',
       description: 'Clinically validated AI model trained on thousands of medical images',
-      color: 'text-blue-600 bg-blue-100'
+      color: 'text-purple-600 bg-purple-100'
     },
     {
       icon: Zap,
@@ -25,7 +25,7 @@ const AboutSection: React.FC = () => {
       icon: Users,
       title: 'Expert Team',
       description: 'Developed by leading medical professionals and AI researchers',
-      color: 'text-purple-600 bg-purple-100'
+      color: 'text-purple-600 bg-purple-200'
     },
     {
       icon: Award,
@@ -37,7 +37,7 @@ const AboutSection: React.FC = () => {
       icon: Clock,
       title: '24/7 Available',
       description: 'Access professional-grade analysis anytime, anywhere',
-      color: 'text-teal-600 bg-teal-100'
+      color: 'text-purple-600 bg-purple-300'
     }
   ];
 
@@ -99,11 +99,11 @@ const AboutSection: React.FC = () => {
 
             <div className="mt-8 grid grid-cols-3 gap-4">
               <div className="text-center">
-                <div className="text-2xl font-bold text-blue-600">10K+</div>
+                <div className="text-2xl font-bold text-purple-600">10K+</div>
                 <div className="text-sm text-gray-600">Patients Helped</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-teal-600">500+</div>
+                <div className="text-2xl font-bold text-purple-600">500+</div>
                 <div className="text-sm text-gray-600">Specialists</div>
               </div>
               <div className="text-center">
@@ -118,7 +118,7 @@ const AboutSection: React.FC = () => {
             <div className="space-y-3">
               {stages.map((stage) => (
                 <div key={stage.number} className="flex items-center space-x-4 p-3 bg-gray-50 rounded-lg">
-                  <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                  <div className="flex-shrink-0 w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                     {stage.number}
                   </div>
                   <div className="flex-grow">
