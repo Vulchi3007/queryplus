@@ -12,7 +12,7 @@ const TreatmentsSection: React.FC<TreatmentsSectionProps> = ({ scrollToSection }
       title: 'Sclerotherapy',
       description: 'A minimally invasive procedure that involves injecting a solution directly into the affected veins.',
       benefits: ['Quick procedure', 'Minimal downtime', 'High success rate'],
-      color: 'text-blue-600 bg-blue-100'
+      color: 'text-purple-600 bg-purple-100'
     },
     {
       icon: Zap,
@@ -33,7 +33,7 @@ const TreatmentsSection: React.FC<TreatmentsSectionProps> = ({ scrollToSection }
       title: 'VenaSeal™',
       description: 'Advanced closure system using medical adhesive to seal affected veins permanently.',
       benefits: ['No heat or tumescence', 'Single treatment', 'Immediate results'],
-      color: 'text-orange-600 bg-orange-100'
+      color: 'text-purple-600 bg-purple-200'
     }
   ];
 
@@ -73,12 +73,13 @@ const TreatmentsSection: React.FC<TreatmentsSectionProps> = ({ scrollToSection }
         </div>
 
         {/* Featured AI Assessment Card */}
-        <div className="bg-gradient-to-r from-blue-600 to-teal-600 rounded-2xl p-8 text-white text-center">
+        <div className="bg-gradient-to-r from-purple-600 to-purple-800 rounded-2xl p-8 text-white text-center">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-white/20 rounded-full mb-6">
             <Bot className="h-10 w-10" />
           </div>
           <h3 className="text-2xl font-bold mb-4">QurePlus AI Assessment</h3>
           <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+          <p className="text-purple-100 mb-6 max-w-2xl mx-auto">
             Get instant, professional-grade varicose vein analysis powered by advanced AI technology. 
             Our assessment tool provides accurate staging and treatment recommendations in seconds.
           </p>
@@ -98,7 +99,7 @@ const TreatmentsSection: React.FC<TreatmentsSectionProps> = ({ scrollToSection }
           </div>
           <button
             onClick={() => scrollToSection('analysis')}
-            className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-full hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            className="inline-flex items-center px-8 py-4 bg-white text-purple-600 font-semibold rounded-full hover:bg-purple-50 transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
             Try AI Assessment Now
           </button>

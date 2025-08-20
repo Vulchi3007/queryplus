@@ -152,7 +152,7 @@ const AnalysisSection: React.FC = () => {
         <div className="flex justify-center mb-8">
           <div className="flex items-center space-x-4">
             <div className={`flex items-center justify-center w-8 h-8 rounded-full ${
-              currentStep === 'form' ? 'bg-blue-600 text-white' : 'bg-green-600 text-white'
+              currentStep === 'form' ? 'bg-purple-600 text-white' : 'bg-green-600 text-white'
             }`}>
               1
             </div>
@@ -161,7 +161,7 @@ const AnalysisSection: React.FC = () => {
             }`}></div>
             <div className={`flex items-center justify-center w-8 h-8 rounded-full ${
               currentStep === 'form' ? 'bg-gray-300 text-gray-600' :
-              currentStep === 'upload' ? 'bg-blue-600 text-white' : 'bg-green-600 text-white'
+              currentStep === 'upload' ? 'bg-purple-600 text-white' : 'bg-green-600 text-white'
             }`}>
               2
             </div>
@@ -169,7 +169,7 @@ const AnalysisSection: React.FC = () => {
               currentStep === 'results' ? 'bg-green-600' : 'bg-gray-300'
             }`}></div>
             <div className={`flex items-center justify-center w-8 h-8 rounded-full ${
-              currentStep === 'results' ? 'bg-blue-600 text-white' : 'bg-gray-300 text-gray-600'
+              currentStep === 'results' ? 'bg-purple-600 text-white' : 'bg-gray-300 text-gray-600'
             }`}>
               3
             </div>
@@ -216,7 +216,7 @@ const AnalysisSection: React.FC = () => {
                 </div>
                 <button
                   onClick={resetForm}
-                  className="mt-4 text-sm text-blue-600 hover:text-blue-800 underline"
+                  className="mt-4 text-sm text-purple-600 hover:text-purple-800 underline"
                 >
                   Edit Information
                 </button>
@@ -226,7 +226,7 @@ const AnalysisSection: React.FC = () => {
             <div className="lg:order-1 space-y-6">
               {!imagePreview ? (
                 <div
-                  className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-blue-400 transition-colors duration-300 cursor-pointer"
+                  className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-purple-400 transition-colors duration-300 cursor-pointer"
                   onDragOver={handleDragOver}
                   onDrop={handleDrop}
                   onClick={() => fileInputRef.current?.click()}
@@ -265,7 +265,7 @@ const AnalysisSection: React.FC = () => {
                 disabled={!selectedImage || isAnalyzing}
                 className={`w-full py-4 px-6 rounded-xl font-semibold transition-all duration-300 ${
                   selectedImage && !isAnalyzing
-                    ? 'bg-gradient-to-r from-blue-600 to-teal-600 text-white hover:from-blue-700 hover:to-teal-700 transform hover:scale-105 shadow-lg hover:shadow-xl'
+                    ? 'bg-gradient-to-r from-purple-600 to-purple-800 text-white hover:from-purple-700 hover:to-purple-900 transform hover:scale-105 shadow-lg hover:shadow-xl'
                     : 'bg-gray-200 text-gray-500 cursor-not-allowed'
                 }`}
               >
@@ -353,7 +353,7 @@ const AnalysisSection: React.FC = () => {
                             fill="none"
                             strokeDasharray={`${2 * Math.PI * 40}`}
                             strokeDashoffset={`${2 * Math.PI * 40 * (1 - analysisResult.probability / 100)}`}
-                            className="text-blue-600 transition-all duration-1000 ease-out"
+                            className="text-purple-600 transition-all duration-1000 ease-out"
                           />
                         </svg>
                         <div className="absolute inset-0 flex items-center justify-center">
@@ -400,7 +400,7 @@ const AnalysisSection: React.FC = () => {
                   </button>
                   <button
                     onClick={() => window.print()}
-                    className="flex-1 py-3 px-6 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium"
+                    className="flex-1 py-3 px-6 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium"
                   >
                     Print Report
                   </button>
@@ -482,10 +482,10 @@ const AnalysisSection: React.FC = () => {
                 </div>
               </div>
             ) : isAnalyzing ? (
-              <div className="bg-blue-50 rounded-xl p-8 text-center">
-                <Loader2 className="h-16 w-16 text-blue-600 mx-auto mb-4 animate-spin" />
-                <h3 className="text-xl font-semibold text-blue-900 mb-2">Analyzing Image</h3>
-                <p className="text-blue-700">Our AI is processing your image...</p>
+              <div className="bg-purple-50 rounded-xl p-8 text-center">
+                <Loader2 className="h-16 w-16 text-purple-600 mx-auto mb-4 animate-spin" />
+                <h3 className="text-xl font-semibold text-purple-900 mb-2">Analyzing Image</h3>
+                <p className="text-purple-700">Our AI is processing your image...</p>
               </div>
             ) : analysisResult ? (
               <div className="space-y-6">
@@ -519,7 +519,7 @@ const AnalysisSection: React.FC = () => {
                             fill="none"
                             strokeDasharray={`${2 * Math.PI * 40}`}
                             strokeDashoffset={`${2 * Math.PI * 40 * (1 - analysisResult.probability / 100)}`}
-                            className="text-blue-600 transition-all duration-1000 ease-out"
+                            className="text-purple-600 transition-all duration-1000 ease-out"
                           />
                         </svg>
                         <div className="absolute inset-0 flex items-center justify-center">

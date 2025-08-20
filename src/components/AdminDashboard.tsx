@@ -110,7 +110,7 @@ const AdminDashboard: React.FC = () => {
             </div>
             <button
               onClick={exportData}
-              className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+              className="flex items-center space-x-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700"
             >
               <Download className="h-4 w-4" />
               <span>Export Data</span>
@@ -127,6 +127,7 @@ const AdminDashboard: React.FC = () => {
                 <p className="text-2xl font-bold text-gray-900">{totalUsers}</p>
               </div>
               <Users className="h-8 w-8 text-blue-600" />
+              <Users className="h-8 w-8 text-purple-600" />
             </div>
           </div>
           <div className="bg-white rounded-xl p-6 shadow-sm">
@@ -145,6 +146,7 @@ const AdminDashboard: React.FC = () => {
                 <p className="text-2xl font-bold text-gray-900">{avgProbability.toFixed(1)}%</p>
               </div>
               <TrendingUp className="h-8 w-8 text-orange-600" />
+              <TrendingUp className="h-8 w-8 text-purple-600" />
             </div>
           </div>
           <div className="bg-white rounded-xl p-6 shadow-sm">
@@ -158,6 +160,7 @@ const AdminDashboard: React.FC = () => {
                   ).length}
                 </p>
               </div>
+              <Calendar className="h-8 w-8 text-purple-600" />
               <Calendar className="h-8 w-8 text-purple-600" />
             </div>
           </div>
@@ -195,6 +198,7 @@ const AdminDashboard: React.FC = () => {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                     <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
                         {user.total_analyses}
                       </span>
                     </td>
@@ -207,7 +211,7 @@ const AdminDashboard: React.FC = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                       <button
                         onClick={() => loadUserDetails(user.id)}
-                        className="text-blue-600 hover:text-blue-900 flex items-center space-x-1"
+                        className="text-purple-600 hover:text-purple-900 flex items-center space-x-1"
                       >
                         <Eye className="h-4 w-4" />
                         <span>View Details</span>

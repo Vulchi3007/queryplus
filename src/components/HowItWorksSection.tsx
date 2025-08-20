@@ -7,7 +7,7 @@ const HowItWorksSection: React.FC = () => {
       icon: Upload,
       title: 'Upload Image',
       description: 'Take a clear photo of your leg and upload it to our secure platform',
-      color: 'text-blue-600 bg-blue-100'
+      color: 'text-purple-600 bg-purple-100'
     },
     {
       icon: Brain,
@@ -86,8 +86,8 @@ const HowItWorksSection: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                  <div className="flex-shrink-0 w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mt-0.5">
+                    <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Instant Results</h4>
@@ -106,9 +106,11 @@ const HowItWorksSection: React.FC = () => {
               </div>
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-teal-50 rounded-xl p-6 text-center">
+            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 text-center">
               <div className="text-4xl font-bold text-blue-600 mb-2">95%</div>
+              <div className="text-4xl font-bold text-purple-600 mb-2">95%</div>
               <div className="text-sm text-gray-600 mb-4">Diagnostic Accuracy</div>
-              <div className="text-2xl font-bold text-teal-600 mb-2">&lt;2s</div>
+              <div className="text-2xl font-bold text-purple-600 mb-2"><2s</div>
               <div className="text-sm text-gray-600 mb-4">Analysis Time</div>
               <div className="text-2xl font-bold text-purple-600 mb-2">5</div>
               <div className="text-sm text-gray-600">Stages Detected</div>
