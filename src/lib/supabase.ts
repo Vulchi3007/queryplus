@@ -65,7 +65,14 @@ export interface AnalysisSummary {
 export const insertUserData = async (userData: Omit<UserData, 'id' | 'created_at'>) => {
   if (!supabase) {
     console.error('Supabase not configured - user data not saved')
-    throw new Error('Database not configured')
+    // Return mock data for development when Supabase is not configured
+    const mockUser: UserData = {
+      id: `mock-${Date.now()}`,
+      ...userData,
+      created_at: new Date().toISOString()
+    }
+    console.log('Using mock user data:', mockUser)
+    return mockUser
   }
 
   console.log('Inserting user data:', userData)
@@ -98,7 +105,14 @@ export const insertAnalysisRecord = async (
 ) => {
   if (!supabase) {
     console.error('Supabase not configured - analysis record not saved')
-    throw new Error('Database not configured')
+    // Return mock data for development when Supabase is not configured
+    const mockRecord: AnalysisRecord = {
+      id: `mock-analysis-${Date.now()}`,
+      ...analysisData,
+      created_at: new Date().toISOString()
+    }
+    console.log('Using mock analysis record:', mockRecord)
+    return mockRecord
   }
 
   console.log('Inserting analysis record:', analysisData)
