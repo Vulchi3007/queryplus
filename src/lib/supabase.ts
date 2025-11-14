@@ -6,8 +6,27 @@ const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 console.log('Supabase URL:', supabaseUrl ? 'Set' : 'Not set')
 console.log('Supabase Key:', supabaseAnonKey ? 'Set' : 'Not set')
 
+// Validate Supabase URL format
+const isValidSupabaseUrl = (url: string) => {
+  if (!url) return false
+  if (url.includes('your_supabase_project_url') || url.includes('your-project')) return false
+  try {
+    const urlObj = new URL(url)
+    return urlObj.protocol === 'https:' && urlObj.hostname.includes('supabase')
+  } catch {
+    return false
+  }
+}
+
+// Validate Supabase key format
+const isValidSupabaseKey = (key: string) => {
+  if (!key) return false
+  if (key.includes('your_supabase_anon_key') || key.includes('your-actual')) return false
+  return key.length > 20 // Basic length check
+}
+
 // Create Supabase client
-export const supabase = supabaseUrl && supabaseAnonKey 
+export const supabase = isValidSupabaseUrl(supabaseUrl) && isValidSupabaseKey(supabaseAnonKey)
   ? createClient(supabaseUrl, supabaseAnonKey, {
       auth: {
         persistSession: false // For anonymous usage
